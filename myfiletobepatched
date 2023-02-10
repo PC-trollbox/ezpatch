@@ -1,0 +1,10 @@
+#include <stdio.h>
+
+void main() {
+    //TODO: change function type to int
+    //TODO: change whotohello to "world"
+    char* whotohello = "everyone";
+    printf("Hello, ");
+    printf(whotohello);
+    printf("!\r\n");
+}
