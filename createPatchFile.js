@@ -59,7 +59,7 @@ try {
         fs.writeFileSync("./patch-file.ezpatch", Buffer.from(patch, "utf-8"));
         console.log(`[log] Saved to \"./patch-file.ezpatch\"`);
     } catch {
-        console.error("[err] Failed to patch to \"./patch-file.ezpatch!\"");
+        console.error("[err] Failed to patch to \"./patch-file.ezpatch\"!");
         process.exit(1);
     }
 }

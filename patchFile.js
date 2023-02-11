@@ -89,7 +89,7 @@ try {
         fs.writeFileSync("./patched-file.patched", Buffer.from(endresult.join("\n"), encoding));
         console.log(`[log] Saved to \"./patched-file.patched\"`);
     } catch {
-        console.error("[err] Failed to patch to \"./patched-file.patched!\"");
+        console.error("[err] Failed to patch to \"./patched-file.patched\"!");
         process.exit(1);
     }
 }
