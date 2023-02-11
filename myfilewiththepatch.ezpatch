@@ -1,9 +1,7 @@
 #encoding ascii
 #skiplines 2
 int main() {
-#removeline
-#removeline
-#removeline
+#removelines 3
 #removeline
     char* whotohello = "world";
 #skiplines 3

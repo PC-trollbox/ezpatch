@@ -57,7 +57,18 @@ while (pointer != Math.max(patchfile.length, originalfile.length)) {
         endresult.splice(pointer, 1);
         patchfile.splice(pointer, 1);
         pointer--;
+    } else if (patchfile[pointer].startsWith("#removelines ")) {
+        let lock = patchfile[pointer];
+        let a = 0;
+        while (a != Number(lock.split(" ")[1])) {
+            endresult.splice(pointer, 1);
+            a++;
+        }
+        patchfile.splice(pointer, 1);
+        pointer--;
     } else if (patchfile[pointer].startsWith("#")) {
+        patchfile.splice(pointer, 1);
+        pointer--;
     } else if (patchfile[pointer].startsWith("\\#")) {
         patchfile[pointer] = patchfile[pointer].replace("\\#", "#");
         endresult.splice(pointer, 0, patchfile[pointer]);
