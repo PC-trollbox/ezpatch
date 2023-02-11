@@ -25,11 +25,15 @@ patchfile = patchfile.split("\n");
 if (patchfile[0].startsWith("#encoding ")) {
     encoding = patchfile[0].split(" ")[1];
     console.log(`[log] Selecting encoding ${patchfile[0].split(" ")[1]} for patching file...`);
-    patchfile = fs.readFileSync(arg_patchfile).toString(patchfile[0].split(" ")[1]);
+    patchfile = fs.readFileSync(arg_patchfile).toString();
     patchfile = patchfile.split("\n");
     patchfile.splice(0, 1);
+    patchfile = patchfile.join("\n");
+    patchfile = Buffer.from(patchfile);
+    patchfile = patchfile.toString(encoding);
+    patchfile = patchfile.split("\n");
 }
-console.log(`[log] Opening original file file \"${arg_patchfile}\"...`);
+console.log(`[log] Opening original file \"${arg_patchfile}\"...`);
 let originalfile = fs.readFileSync(arg).toString(encoding);
 originalfile = originalfile.split("\n");
 console.log("[log] Starting manipulation...");
